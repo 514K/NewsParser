@@ -13,7 +13,7 @@ class NewsParser:
     __formatSettings = {
         # (int) Максимальное количество символов в строке
         "MaxWidthText": "80",
-        # (str) s - текс ссылки, l - сама ссылка ["[{s};{l}]", "{s}[{l}]", "[{l};{s}]"]
+        # (str) s - текст ссылки, l - сама ссылка ["[{s};{l}]", "{s}[{l}]", "[{l};{s}]"]
         "LinksFormat": "[{s};{l}]",
         # (int) Количество отступов для заголовка статьи
         "NumTitleIndents": "2",
@@ -37,10 +37,6 @@ class NewsParser:
         # (str) Ищет параграфы по классу (работает только если FindTag == None или по FindTag не найдено элементов)
         "FindClass" : "None"
     }
-
-    # def debug(self):
-    #     print(self.__parseSettings)
-    #     print(self.__formatSettings)
 
     def __init__(self):
         pass
@@ -97,8 +93,6 @@ class NewsParser:
             elements = soup.find_all(FindTag)
         else:
             elements = soup.find_all(class_=FindClass)
-        # print(len(soup.find_all(FindTag)) > 0)
-        # print("\n\n")
 
         for item in elements:
             footerOrSpamLinkIsFind = False
